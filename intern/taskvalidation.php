@@ -1,11 +1,16 @@
 <?php
-     $conn = mysqli_connect('localhost','root','','employee');
+     $conn = mysqli_connect('localhost','root','','internproject');
      $date = date('Y-m-d');
      $task= $_POST['task'];
      echo $task;
 
-    //  $query = "INSERT INTO tasktable (date,task) VALUES (5,$_POST['task'])";
-
-    $result = mysqli_query($conn,"insert into tasktable(date,task) values ('$date','$task')");
-    
+     $query = "INSERT INTO taskmanagement (date,task) VALUES (now(),'$task')";
+     if(mysqli_query($conn,$query))
+        {
+            echo "=inserted";
+        }
+        else
+        {
+            echo "not inserted";  
+        }
 ?>
